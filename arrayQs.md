@@ -17,14 +17,18 @@ console.log(sum)
 ### Q 3. Given two arrays of numbers, write a function that returns a new array that contains only the unique elements from both arrays.
 ~~~
 const arr1 = [1,2,3,4,2,3];
-const arr2 = [5,6,7,8,5,6];
+const arr2 = [5,6,7,8,9,6];
 const arr4 = [];
 const arr3 = [];
-for(let i = 0; i < arr1.length; i++){
-      if(!arr3.includes(arr1[i]) && !arr4.includes(arr2[i])){
-         arr3.push(arr1[i])
-         arr4.push(arr2[i])
-      }
+for(let val of arr1){
+    if(!arr3.includes(val)){
+      arr3.push(val);
+    }
+}
+for(let val of arr2){
+    if(!arr4.includes(val)){
+      arr4.push(val);
+    }
 }
 const newArr = [...arr3,...arr4];
 console.log(newArr);
