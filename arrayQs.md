@@ -157,15 +157,16 @@ console.log(sortStringsByLength(["apple", "banana", "cherry", "date"]));
 function secHighestNum(arrNum){
    let hNum = 0;
    let seNum = 0;
-   for(let i = 0; i < arrNum.length; i++){
-      if(hNum < arrNum[i]){
-         seNum = hNum;
-         hNum = arrNum[i];
-      }else{
-         seNum = arrNum[i]
+   arrNum.forEach((val) => {
+      if(hNum < val){
+         let cVal = hNum;
+             hNum = val;
+             seNum = cVal; 
+      }else if(seNum < val && val < hNum){
+             seNum = val
       }
-   }
-return seNum;
+   })
+   return seNum;
 }
 console.log(secHighestNum([1,4,5,8,7,6,10,9,9]));
 ~~~
