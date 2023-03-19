@@ -2,14 +2,14 @@
 
 ### Q 1.Write a JavaScript program to check whether a string "Code" presents at 5th (index 4) position in a given string, if "Code" presents in the string return the string without "Code" otherwise return the original one.
 ~~~
-function string(str){
-if(str.toLowerCase().indexOf("code") === 4){
-    return str.substring(0,4).concat(str.slice(8))
+function string(str,word){
+if(str.toLowerCase().indexOf(word) === 4){
+    return str.substring(0,4).concat(str.slice(4 + word.length))
 }else{
     return str;
 }   
 }
-console.log(string("Hellcode academy"));
+console.log(string("Hello wecode academy","code"));
 ~~~
 
 ### Q 2. Write a JavaScript program to capitalize the first letter of each word of a given string.
