@@ -37,11 +37,9 @@ console.log(newArr);
 ### Q 4. Given an array of strings, write a function that returns the longest string in the array.
 ~~~
 const arrStr = ["Hello", "wecode", "academy"];
-let strLen = 0;
 let longestStr = "";
 arrStr.forEach((val) => {
-   if(val.length > strLen){
-      strLen =  val.length
+   if(val.length > longestStr.length){
       longestStr = val;
    }
 })
@@ -123,13 +121,14 @@ console.log(numPlus([1,2,3,4,5,6,7,8,9]));
 ### Q 13. Write a function that takes an array of numbers and returns a new array that contains only the unique numbers using reduce.
 ~~~
 function uniqueNum(arrNum){
-   const newArr = [];
-   arrNum.forEach((num)=>{
-      if(!newArr.includes(num)){
-         newArr.push(num)
+   return arrNum.reduce((arr,ele)=>{
+      if(arr.includes(ele)){
+         retrun arr;
+      }else{
+         arr.push(ele);
+         return arr;
       }
-   })
-   return newArr;
+      })
 }
 console.log(uniqueNum([1,2,3,4,5,6,7,1,2,3]));
 ~~~

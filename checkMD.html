@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello Everyone</title>
+	</head>
+<body>
+	<h1>Hello Everyone</h1>
+</body>	
+<script type="text/javascript">
+function search_word(str, word){
+ let count = 0;
+ let str1 = str.split(" ").forEach((val)=>{
+    if(val === word){
+      count++;
+    }
+   });
+ return count;
+}
+console.log(search_word('The quick brown fox', 'fox'));
+console.log(search_word('aa, bb, cc, dd, aa', 'aa'));
+
+</script>
+</html>

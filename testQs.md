@@ -81,11 +81,11 @@ console.log(string_chop('w3resource',3));
 ~~~
 function search_word(str, word){
  let count = 0;
- for(let i=0; i < str.length; i++){
-   if(str[i] + str[i+1] === word || str[i] + str[i+1]+ str[i+2] === word){
+ let str1 = str.split(" ").forEach((val)=>{
+    if(val === word){
       count++;
-   }
- }
+    }
+   });
  return count;
 }
 console.log(search_word('The quick brown fox', 'fox'));
