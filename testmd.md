@@ -5,7 +5,7 @@
 
 # Install and Setup
 
-#### 1.Create Database.
+### 1.Create Database.
 
 Es command ka use DBMS me database create karane ke liye kiya jata hai.
 ~~~
@@ -13,21 +13,21 @@ CREATE DATABASE database_name;
 ~~~
 
 
-#### 2.Show Databases.
+### 2.Show Databases.
 
 Es command ka use DBMS me jitane bhi database hai onhe dikhan ke liye hota hai.
 ~~~
 SHOW DATABASES;
 ~~~
 
-#### 3. Use Database.
+### 3. Use Database.
 
 Es command ka use database ko use karane ke liye hota hai.
 ~~~
 USE Database_name;
 ~~~
 
-#### 4. Create Table.
+### 4. Create Table.
 
 Es command ka use database me table create karane ke liye hota hai.
 ~~~
@@ -38,7 +38,7 @@ Column2 DATATYPE CONTRAINT,
 );
 ~~~
 
-#### 5.Alter Table.
+### 5.Alter Table.
 
 - Add column in table.
 
