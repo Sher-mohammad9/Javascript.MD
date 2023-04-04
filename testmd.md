@@ -40,7 +40,7 @@ Column2 DATATYPE CONTRAINT,
 
 ### 5.Alter Table.
 
-- Add column in table.
+- #### Add column in table.
 
 Es command ka use table me column add karane ke liye kiya jata hai.
 ~~~
