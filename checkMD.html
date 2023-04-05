@@ -7,17 +7,28 @@
 	<h1>Hello Everyone</h1>
 </body>	
 <script type="text/javascript">
-function search_word(str, word){
- let count = 0;
- let str1 = str.split(" ").forEach((val)=>{
-    if(val === word){
-      count++;
+
+function letterCount(map) {
+  // Create a new Map to store the letter counts.
+  const letterCounts = new Map();
+
+  // Loop through the entries in the input Map.
+  for (const [key, value] of map) {
+    // Loop through the characters in the value string.
+    for (const char of value) {
+      // If the character is a letter, add it to the letter count for this key.
+      if (/[a-zA-Z]/.test(char)) {
+        const letter = char.toLowerCase();
+        const count = letterCounts.get(letter) || 0;
+        letterCounts.set(letter, count + 1);
+      }
     }
-   });
- return count;
+  }
+
+  return letterCounts;
 }
-console.log(search_word('The quick brown fox', 'fox'));
-console.log(search_word('aa, bb, cc, dd, aa', 'aa'));
+console.log(letterCount(new Map([['m','mohammad'],['k','khan'],["a","hassan"]])));
+
 
 </script>
 </html>

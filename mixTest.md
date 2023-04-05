@@ -56,7 +56,13 @@ function takeObj(objArr){
     console.log(Object.values(newObj));
 }
 
-takeObj([{name:"sher mohammad", city : "merta", villge : "karakwal"},{name : "hassan", city : "merta", villge : "karakwal", pincode : 1234567},{name:"sher mohammad",city:"jaipur"}])
+takeObj([
+  { name: "Alice", age: 20 },
+  { name: "Bob", age: 30 },
+  { name: "Alice", age: 25 },
+  { name: "Charlie", age: 35 },
+  { name: "Bob", age: 40 }
+])
 ~~~
 
 ### Q 4. Write a function that takes an object as an input and returns an array of all the keys in the object, sorted alphabetically.
@@ -117,9 +123,7 @@ pruNum([1,2,3,4,5,6,7,8,8,6,9,12,10,9]);
 ~~~
 function uniqueEle(arr1, arr2){
    let newArr = [];
-   arr1.forEach((val1)=> {
-      arr2.forEach((val2)=> !newArr.includes(val1) && !newArr.includes(val2) ? newArr.push(val1) : val1)
-   });
+   arr1.forEach((val1)=> arr2.includes(val1) && !newArr.includes(val1) ? newArr.push(val1) : val1);
    console.log(newArr);
 }
 uniqueEle([1,2,3,4,1,2,3],[7,6,5,4,3,2,1]);
@@ -288,6 +292,8 @@ checkMap(map1);
 ### Q 5. rite a function that takes a Map of strings as an input and returns a new Map where each key is a letter and the value is the number of times that letter appears in the values of the input Map.
 
 ~~~
+let map1 = new Map([['m,'mohammad'],['k,'khan'],["a","hassan"]]);
+
 function checkMap(map){
    let newMap = new Map();
    map.forEach((val,key) => {

@@ -4,13 +4,12 @@
 
 Es command ka use DBMS me database create karane ke liye kiya jata hai.
 ~~~
-CREATE DATABASE database_name;
+CREATE DATABASE wecode_academy;
 ~~~
-
 
 ### 2.Show Databases.
 
-Es command ka use DBMS me jitane bhi database hai onhe dikhan ke liye hota hai.
+Es command ka use DBMS me jitane bhi database hai onhe show karane ke liye hota hai.
 ~~~
 SHOW DATABASES;
 ~~~
@@ -19,17 +18,23 @@ SHOW DATABASES;
 
 Es command ka use database ko use karane ke liye hota hai.
 ~~~
-USE Database_name;
+USE wecode_academy;
 ~~~
 
 ### 4. Create Table.
 
-Es command ka use database me table create karane ke liye hota hai.
+Es command ka use database me table create karane ke liye hota hai.                  -- **student** Column_name hai jisko humne  **INTEGER** datatype di hai eska matlab hai ki es column me sirf number datatype ki value jaygi. **UNSIGNED** ka matlab hai ki yhe negative me number nhi laga. **PRIMARY KEY** ka matlab hai ki record ko uniquely identify karega. **NOT NULL** ka matlab hai ki es column ki value null nhi ho sakti.
+**AUTO_INCREMENT** ka matlab hai ki **PRIMARY KEY** automatic increment hoti rahagi.
 ~~~
-CREATE TABLE Table_name (
-Column1 DATATYPE CONTRAINT,
-Column2 DATATYPE CONTRAINT,
-...
+CREATE TABLE students(
+studentId INTEGER UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+studentName VARCHAR(155) NOT NULL,
+fatherNAME VARCHAR(155) NOT NULL,
+mobileNumber BIGINT NOT NULL,
+country VARCHAR(155) NOT NULL,
+state VARCHAR(155) NOT NULL,
+city VARCHAR(155) NOT NULL,
+pincode INTEGER NOT NULL
 );
 ~~~
 
