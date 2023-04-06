@@ -241,7 +241,6 @@ Es command ka use yhe dekhane ke liye kiya jata hai. ki particular value ke sath
 SELECT * FROM students HAVING studentName = 'wecode';
 ~~~
 
-
 ## Insert data into a table using data from another table.
 
 Es command ka use another table ka data kisi or table me insert karane ke liye hota hai.lakin esme table1 or table2 ke column order same hone chahiye. 
@@ -277,10 +276,28 @@ CASE
 END AS result FROM students;
 ~~~   
 
+## Comments in MySQL.
+
+Comment ka use queri ko explain karane ke liye kiya jata hai.
+
+#### Single line comment.
+~~~
+-- comment
+~~~
+
+#### Multiple line comments
+~~~
+/* 
+comment 
+*/
+~~~
+
 ## Aggregate functions in DBMS.
 
 Aggregate function ka use DBMS me record ko sum,count,avg,max,min karane ke liye hota hai.
  
+### Sum function.
+
 - #### Sum function without condition.
 
 Sum function ka use database me se numeric record ka sum karane ke liye hota hai. Without condition se studentFee table me se all month ki fees sum karga.
@@ -294,6 +311,8 @@ Sum function ka use database me se numeric record ka sum karane ke liye hota hai
 ~~~
 SELECT SUM(fees) FROM studentFee WHERE month = 'January';
 ~~~
+
+### Count function.
 
 - #### Count function without condition.
 
@@ -309,6 +328,8 @@ Count function ka use database me record ka count karane ke liye hota hai. Es qu
 SELECT COUNT(studentId) FROM students WHERE studentAge > 15;
 ~~~
 
+### Average function.
+
 - #### Average function without condition.
 
 Average function ka use database me se numeric record ka average get karane ke liye hota hai. Es queri me all student ki age ki average nikali jaygi.
@@ -322,6 +343,8 @@ Average function ka use database me se numeric record ka average get karane ke l
 ~~~
 SELECT AVG(age) FROM students WHERE studentName = 'wecode';
 ~~~
+
+### Max function.
 
 - #### Max function without condition.
 
@@ -337,6 +360,8 @@ Max function ka use database me se numeric record me se maximum value get karane
 SELECT studentId,MAX(age) FROM students WHERE studentName = 'wecode' GROUP BY studentId LIMIT 1;
 ~~~
 
+### Min function.
+
 - #### Min function without condition.
 
 Min function ka use database me se numeric record me se minimum value get karane ke liye hota hai. Es queri me student me se kiski age sabse choti hai yhe get ki jaygi.
@@ -351,6 +376,94 @@ Min function ka use database me se numeric record me se minimum value get karane
 SELECT studentId,MIN(age) FROM students WHERE studentName = 'wecode' GROUP BY studentId LIMIT 1;
 ~~~
 
-### 
+## Other function.
 
+- ### Null function.
 
+Null funcrion ka use table me se data get karte time particular column ki null value ki jagah default value set karane ke liye hota hai.
+~~~
+SELECT studentName,IF NULL(mobileNumber, 9843853847) FROM students;
+~~~
+
+## Logical operator in DBMS.
+
+- #### AND operator.
+
+AND operator ka use multiple condition lagane ke liye kiya jata hai. Esme all condition true hone per hi koi queri data return karti hai.
+~~~
+SELECT * FROM students WHERE studentName = 'wecode' AND studentId = 1;
+~~~
+
+- #### OR operator.
+
+OR operator ka use multiple condition lagane ke liye kiya jata hai. Esme koi ek  condition true hone per hi koi queri data return karti hai. Jo condition true hogi oske related data return hoga. ager all condition true hoti hai to onke letated data return hoga.
+~~~
+SELECT * FROM students WHERE studentName = 'wecode'  OR studentId = 5;
+~~~
+
+- #### NOT operator.
+
+NOT operator me jo condition true hoti hai oska data return nhi hota hai. oske alava queri all data return karti hai. Es queri me studentId 5 ka data return nhi hoga.
+~~~
+SELECT * FROM students WHERE NOT studentId = 5;  
+~~~
+
+- #### IN operator.
+
+IN operator ka use multiple condition ko sort me lagane ke liye kiya jata hai. Esme jo condition true hogi queri oska data return karti jaygi.
+~~~
+SELECT * FROM students WHERE studentId IN (1,2,3,4,5);
+~~~
+
+- #### LIKE operator.
+
+LIKE operator ka use asi situation me kiya jata hai jaha hum value ka chota part yad ho or osi value ka data lena ho.
+
+> ##### LIKE with % searchValue.
+
+% se pahal kuch bhi ho sakta hai lakin oske aage searchValue honi chahiye.
+~~~
+SELECT * FROM students WHERE studentName LIKE '%khan';
+~~~
+
+> ##### LIKE with % searchValue %;
+
+% se pahal or % ke bade kuch bhi ho sakta hai. lakin bich me searchValue honi chahiye.
+~~~
+SELECT * FROM students WHERE studentEmail LIKE '%khan12@gmail%';
+~~~
+
+> ##### LIKE with searchValue %
+
+% ke bade kuch bhi ho sakta hai lakin pahal searchValue honi chahiye.
+~~~
+SELECT * FROM students WHERE mobileNuber LIKE '1234%';
+~~~
+
+#### BETWEEN operator.
+
+BETWEEN operator ka use two condition ke bich ka record get karane ke liye kiya jata hai. 
+~~~
+SELECT * FROM students WHERE studentId BETWEEN 5 AND 8;
+~~~
+
+#### EXISTS operator.
+
+EXISTS operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or particulr value ke sath record fill hota hai to queri table me se all data return karti hai.
+~~~
+SELECT * FROM students WHERE EXISTS(SELECT * FROM students WHERE studentName = "wecode");
+~~~
+
+#### ALL operator.
+
+All operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or record fill hota hai to sub queri jo data retrun karti hai. os main queri se compare karte hai. comparision ke according main queri data return karti hai.
+~~~
+SELECT * FROM students WHERE studentId >= ALL (SELECT studentId FROM students WHERE fatherName = 'wecode khan');
+~~~
+
+#### ANY operator.
+
+ANY operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or record fill hota hai to sub queri jo data retrun karti hai. os main queri se compare karte hai. comparision ke according main queri data return karti hai.
+~~~
+SELECT * FROM students WHERE studentId <= ANY (SELECT studentId FROM students WHERE studentId > 4);
+~~~
