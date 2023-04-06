@@ -24,8 +24,12 @@ USE wecode_academy;
 ### Create Table.
 
 Es command ka use database me table create karane ke liye hota hai.
-- **studentId** Column_name hai jisko humne  **INTEGER** datatype di hai eska matlab hai ki es column me sirf number datatype ki value jaygi. **UNSIGNED** ka matlab hai ki yhe negative me number nhi laga. **PRIMARY KEY** ka matlab hai ki record ko uniquely identify karega. **NOT NULL** ka matlab hai ki es column ki value null nhi ho sakti.
-**AUTO_INCREMENT** ka matlab hai ki **PRIMARY KEY** automatic increment hoti rahagi.
+
+- **studentId** Column_name hai jisko humne  **INTEGER** datatype di hai eska matlab hai ki es column me sirf number datatype ki value jaygi. 
+- **UNSIGNED** ka matlab hai ki yhe negative me number nhi laga.
+- **PRIMARY KEY** ka matlab hai ki record ko uniquely identify karega. 
+- **NOT NULL** ka matlab hai ki es column ki value null nhi ho sakti.
+- **AUTO_INCREMENT** ka matlab hai ki **PRIMARY KEY** automatic increment hoti rahagi.
  
 ~~~
 CREATE TABLE students(
@@ -478,7 +482,7 @@ feeId INTEGER UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 amount BIGINT NOT NULL CHECK (amount >= 3000),
 month VARCHAR(155) NOT NULL,
 feesCheck VARCHAR(155) DEFAULT 'Yes',
-sId BIGINT FOREIGN KEY(sId) REFERENCES students(studentId)
+sId INTEGER FOREIGN KEY(sId) REFERENCES students(studentId)
 );
 ~~~
 
