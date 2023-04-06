@@ -440,28 +440,28 @@ SELECT * FROM students WHERE studentEmail LIKE '%khan12@gmail%';
 SELECT * FROM students WHERE mobileNuber LIKE '1234%';
 ~~~
 
-#### BETWEEN operator.
+- #### BETWEEN operator.
 
 BETWEEN operator ka use two condition ke bich ka record get karane ke liye kiya jata hai. 
 ~~~
 SELECT * FROM students WHERE studentId BETWEEN 5 AND 8;
 ~~~
 
-#### EXISTS operator.
+- #### EXISTS operator.
 
 EXISTS operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or particulr value ke sath record fill hota hai to queri table me se all data return karti hai.
 ~~~
 SELECT * FROM students WHERE EXISTS(SELECT * FROM students WHERE studentName = "wecode");
 ~~~
 
-#### ALL operator.
+- #### ALL operator.
 
 All operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or record fill hota hai to sub queri jo data retrun karti hai. os main queri se compare karte hai. comparision ke according main queri data return karti hai.
 ~~~
 SELECT * FROM students WHERE studentId >= ALL (SELECT studentId FROM students WHERE fatherName = 'wecode khan');
 ~~~
 
-#### ANY operator.
+- #### ANY operator.
 
 ANY operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or record fill hota hai to sub queri jo data retrun karti hai. os main queri se compare karte hai. comparision ke according main queri data return karti hai.
 ~~~
