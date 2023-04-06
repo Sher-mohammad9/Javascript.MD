@@ -519,5 +519,27 @@ Right join ka use students or fees ke coman record or fees ke sare record get ka
 SELECT * FROM students RIGHT JOIN fees ON student.sId IN(fees.sId);
 ~~~
 
+## MULTIPLE JOINs.
 
+MULTIPLE Joins ka use do se jyada table ki infomation ek sath get karne ke liye hota hai.
 
+- #### MULTIPLE INNER JOIN.
+
+Multiple inner join ka use do se jyada table ki coman record ko get karane ke liye hota hai.
+~~~
+SELECT * FROM students INNER JOIN fees ON student.sId IN(fees.sId) JOIN result ON student.sId IN(result.sId);
+~~~ 
+
+- #### MULTIPLE LEFT JOIN.
+
+Multiple left join ka use students or fees or result ke coman record or students ke sare record get karane ke liye hota hai.
+~~~
+SELECT * FROM students LEFT JOIN fees ON student.sId IN(fees.sId) LEFT JOIN result ON student.sId IN(result.sId);
+~~~
+
+- #### MULTIPLE RIGHT JOIN.
+
+Multiple right join ka use students or fees or result ke coman record or fees ke sare record get karane ke liye hota hai.
+~~~
+SELECT * FROM students RIGHT JOIN fees ON student.sId IN(fees.sId) RIGHT JOIN result ON student.sId IN(result.sId);
+~~~
