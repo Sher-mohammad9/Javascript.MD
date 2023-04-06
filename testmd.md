@@ -467,3 +467,53 @@ ANY operator ka use table me particular value ke sath koi record fill hai ya nhi
 ~~~
 SELECT * FROM students WHERE studentId <= ANY (SELECT studentId FROM students WHERE studentId > 4);
 ~~~
+
+## CONSTRAINT in DBMS.
+
+Constraint ka use table create karte time table ke liye rules banane ke liye hota hai.
+
+~~~
+CREATE TABLE fees(
+feeId INTEGER UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+amount BIGINT NOT NULL CHECK (amount >= 3000),
+month VARCHAR(155) NOT NULL,
+feesCheck VARCHAR(155) DEFAULT 'Yes',
+sId BIGINT FOREIGN KEY(sId) REFERENCES students(studentId)
+);
+~~~
+
+- **UNSIGNED** ka matlab hai ki yhe negative me number nhi laga. 
+- **PRIMARY KEY** ka matlab hai ki record ko uniquely identify karega. 
+- **FOREIGN KEY** ka use do table ke bich relation bana ke liye hota hai.
+- **NOT NULL** ka matlab hai ki column ki value null nhi ho sakti.
+- **AUTO_INCREMENT** ka matlab hai ki **PRIMARY KEY** automatic increment hoti rahagi. 
+- **DEFAULT** ka matlab hai ki column me value insert nhi ki gai to ye default value insert ho jaygi.
+- **CHECK** constraint ka matlab hai ki column me condition ke accroding value insert ho sakti hai.
+
+## JOINs in DBMS.
+
+Joins ka use do ya do se jyada table ki infomation ek sath get karne ke liye hota hai.
+
+- #### INNER JOIN.
+
+Inner join ka use do ya do se jyada table ki coman record ko get karane ke liye hota hai.
+~~~
+SELECT * FROM students INNER JOIN fees ON student.sId IN(fees.sId);
+~~~ 
+
+- #### LEFT JOIN.
+
+Left join ka use students or fees ke coman record or students ke sare record get karane ke liye hota hai.
+~~~
+SELECT * FROM students LEFT JOIN fees ON student.sId IN(fees.sId);
+~~~
+
+- #### RIGHT JOIN.
+
+Right join ka use students or fees ke coman record or fees ke sare record get karane ke liye hota hai.
+~~~
+SELECT * FROM students RIGHT JOIN fees ON student.sId IN(fees.sId);
+~~~
+
+
+

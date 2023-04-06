@@ -8,27 +8,8 @@
 </body>	
 <script type="text/javascript">
 
-function letterCount(map) {
-  // Create a new Map to store the letter counts.
-  const letterCounts = new Map();
-
-  // Loop through the entries in the input Map.
-  for (const [key, value] of map) {
-    // Loop through the characters in the value string.
-    for (const char of value) {
-      // If the character is a letter, add it to the letter count for this key.
-      if (/[a-zA-Z]/.test(char)) {
-        const letter = char.toLowerCase();
-        const count = letterCounts.get(letter) || 0;
-        letterCounts.set(letter, count + 1);
-      }
-    }
-  }
-
-  return letterCounts;
-}
-console.log(letterCount(new Map([['m','mohammad'],['k','khan'],["a","hassan"]])));
-
-
+let str = "the quick brown fox";
+let revStr = str.split(" ").reverse().join(" ");
+console.log(revStr);
 </script>
 </html>
