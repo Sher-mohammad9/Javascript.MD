@@ -54,10 +54,12 @@ console.log(oddEven([1,2,3,4,5,6,7,8]));
 function posiChange(arr){
   let newArr = [];
   for(let i = 0; i < arr.length; i+=2){
-      if(arr[i+1] !== undefined){
+      if(i === arr.length-1){
         newArr.push(arr[i+1]);
-      }
+      }else{
+        newArr.push(arr[i+1])
         newArr.push(arr[i])
+      }
 }
   return newArr;
 }
