@@ -3,8 +3,8 @@
 ### Q1 Write a function that takes a string and returns a new string with all the words reversed using the spread operator.
 
 ~~~
-function revstr([...str]){
-  return str.reverse().join("");
+function revstr(str){
+  return str.split(" ").map((val)=> [...val].reverse().join('')).join(' ')
 }
 console.log(revstr("WeCode Academy"))
 ~~~
@@ -22,8 +22,8 @@ console.log(resArr([1,2,3,4,5]));
 ### Q3 Create a function that takes an unknown number of arrays and uses the rest operator to flatten them into a single array.
 
 ~~~
-function faltArr(...arr){
- return arr.flat();
+function faltArr(...arr){ 
+  return [].concat(...arr)
 }
 console.log(faltArr([1,2,3,4,5],[6,7,8,9],[10,1,12,13,14,15]));
 ~~~
@@ -32,7 +32,7 @@ console.log(faltArr([1,2,3,4,5],[6,7,8,9],[10,1,12,13,14,15]));
 
 ~~~
 function obj(obj){
- return obj?.x || null;
+ return obj?.x ?? null;
 }
 console.log(obj({name : "hello",x:10}));
 ~~~
@@ -53,17 +53,15 @@ console.log(oddEven([1,2,3,4,5,6,7,8]));
 ~~~
 function posiChange(arr){
   let newArr = [];
-  for(let i = 0; i < arr.length; i++){
-    if(!newArr.includes(arr[i])){
-      if(arr[i+1]){
+  for(let i = 0; i < arr.length; i+=2){
+      if(arr[i+1] !== undefined){
         newArr.push(arr[i+1]);
-     }
+      }
         newArr.push(arr[i])
-   }
 }
   return newArr;
 }
-console.log(posiChange([1,2,3,4,5,6,7]));
+console.log(posiChange([1,2,3,4,5,6,7,0,null,undefined]));
 ~~~
 
 ### Q7 Ask user below questions
@@ -88,17 +86,20 @@ console.log(obj)
 ### Q8 Using enhanced object literal function, create a function sum which takes an array as parameter and return sum of all the numbers in the array.
 
 ~~~
+Const obj = {
 function sum(arr){
     return arr.reduce((total,val)=> total+val)
 }
-console.log(sum([1,2,3,4,5]))
+}
+const arr = [1,2,3,4,5];
+console.log(obj.sum(arr))
 ~~~
 
 ### Q9 Take a number and check if number is greater than 80 or not. If yes then assign 100 to number else assign 200. Use short circuiting whereever possible.
 
 ~~~
 let num  = 40;
-num = num > 80 && 100 || num < 80 && 200
+num = num > 80 && 100 || 200
 console.log(num)
 ~~~
 
