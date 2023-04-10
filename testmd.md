@@ -1,27 +1,46 @@
-# testmd.md
+# MySQL_Commands
 
-## Create Database.
+## Create Database
 
 Es command ka use DBMS me database create karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
+create database database_name;
+~~~
+
+Example : 
+```sql
 CREATE DATABASE wecode_academy;
-~~~
+```
 
 ## Show Databases.
 
 Es command ka use DBMS me jitane bhi database hai onhe show karane ke liye hota hai.
+Syntax :
 ~~~
-SHOW DATABASES;
+SHOW DATABASE;
 ~~~
 
-## Use Database.
+Example :
+```sql
+SHOW DATABASES;
+```
+
+## Use Database
 
 Es command ka use database ko use karane ke liye hota hai.
-~~~
-USE wecode_academy;
-~~~
+Syntax :
+```
+USE database_name;
+```
 
-### Create Table.
+Example :
+```sql
+USE wecode_academy;
+```
+
+### Create Table
 
 Es command ka use database me table create karane ke liye hota hai.
 
@@ -30,8 +49,18 @@ Es command ka use database me table create karane ke liye hota hai.
 - **PRIMARY KEY** ka matlab hai ki record ko uniquely identify karega. 
 - **NOT NULL** ka matlab hai ki es column ki value null nhi ho sakti.
 - **AUTO_INCREMENT** ka matlab hai ki **PRIMARY KEY** automatic increment hoti rahagi.
- 
+
+Syntax :
 ~~~
+CREATE TABLE Table_name (
+Column1 DATATYPE CONTRAINT,
+Column2 DATATYPE CONTRAINT,
+...
+);
+~~~
+
+Example :
+```sql
 CREATE TABLE students(
 studentId INTEGER UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 studentName VARCHAR(155) NOT NULL,
@@ -42,441 +71,830 @@ state VARCHAR(155) NOT NULL,
 city VARCHAR(155) NOT NULL,
 pincode INTEGER NOT NULL
 );
-~~~
+```
 
-## Alter Table.
+## Alter Table
 
-- #### Add column in table.
+- #### Add column in table
 
 Es command ka use table me column add karane ke liye kiya jata hai.
+Syntax :
 ~~~
-ALTER TABLE students ADD age INTEGER;
+ALTER TABLE table_name ADD column_name DATATYPE;
 ~~~
 
-- #### Add column in table specific position.
+Example :
+```sql
+ALTER TABLE students ADD age INTEGER;
+```
+
+- #### Add column in table specific position
 
 Es command ka use table me specific column se pahal column add karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-ALTER TABLE students ADD COLUMN Age INTEGER AFTER City;
+ALTER TABLE table_name ADD COLUMN current_column_name AFTER new_cloumn_name;
 ~~~
 
-- #### Modify column in table.
+Example :
+```sql
+ALTER TABLE students ADD COLUMN Age INTEGER AFTER City;
+```
+
+- #### Modify column in table
 
 Es commad ka use table column ko modify karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-ALTER TABLE students MODIFY COLUMN Age INTEGER;
+ALTER TABLE table_name MODIFY COLUMN column_name DATATYPE;
 ~~~
 
-- #### Rename column in table.
+Example :
+```sql
+ALTER TABLE students MODIFY COLUMN Age INTEGER;
+```
+
+- #### Rename column in table
 
 Es command ka use table ke  column ke name ko change karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-ALTER TABLE table_name RENAME COLUMN City TO myCity;
+ALTER TABLE table_name RENAME COLUMN current_column_name TO new_column_name;
 ~~~
 
-- #### Drop column in table.
+Example :
+```sql
+ALTER TABLE table_name RENAME COLUMN City TO myCity;
+```
+
+- #### Drop column in table
 
 Es command ka use table me se column ko delete karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
+ALTER TABLE table_name DROP column_name;
+~~~
+
+Example :
+```sql
 ALTER TABLE students DROP COLUMN City;
-~~~
+```
 
-## Insert data in table.
+## Insert data in table
 
-- #### Insert data in table with column name.
+- #### Insert data in table with column name
 
 Es command ka use table me column name ke sath data insert karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
+INSERT INTO table_name (Column1,Column2,Column3, ...)
+VALUES (Value1,Value2,Value3,...);
+~~~
+
+Example :
+```sql
 INSERT INTO table_name (studentName,fatherName,mobileNumber, ...)
 VALUES ('wecode academy','academy',1234567899,...);
-~~~
+```
 
-- #### Insert data in table without column name.
+- #### Insert data in table without column name
 
 Es cammand ka use table me bina column name ka use kiye data insert karane ke liye kiya jata hai.lakin esme column name ka order pata hona chahiye.
+
+Syntax :
 ~~~
-INSERT INTO table_name VALUES('wecode academy','academy',1234567899,...);
+INSERT INTO table_name VALUES(Value1,Value2,Value3,...);
 ~~~
 
-## Delete database in DBMS.
+Example :
+```sql
+INSERT INTO table_name VALUES('wecode academy','academy',1234567899,...);
+```
+
+## Delete database in DBMS
 
 Es command ka use DBMS se database ko drop karane ke liye hota hai.
+
+Syntax :
 ~~~
-DROP wecode_academy;
+DROP database_name;
 ~~~
 
-## Delete table in database.
+Example :
+```sql
+DROP wecode_academy;
+```
+
+## Delete table in database
 
 Es command ka use database me se table drop karane ke liye hota hai.
+
+Syntax :
 ~~~
+DROP table_name;
+~~~
+
+Example :
+```sql
 DROP students;
-~~~
+```
 
-## Select data from table.
+## Select data from table
 
-- #### Get full record in table.
+- #### Get full record in table
 
 Es command ka use table me se sare column ka data get karane ke liye hota hai.
+
+Syntax :
 ~~~
-SELECT * FROM students;
+SELECT * FROM table_name;
 ~~~
 
-- #### Get specific column record in table.
+Example :
+```sql
+SELECT * FROM students;
+```
+
+- #### Get specific column record in table
 
 Es command ka use table me se specific column ka data get karane ke liye kiya jata hai.
+
+Syntax:
 ~~~
+SELECT Column_name1, Column_name2 FROM table_name;
+~~~
+
+Example :
+```sql
 SELECT studentName, fatherName,mobileNumber FROM students;
-~~~
+```
 
-## Select data from table with condition.
+## Select data from table with condition
 
-- #### Single condition.
+- #### Single condition
 
 Es command ka use table me se specific condition ke sath data get karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentId = 1;
+SELECT * FROM table_name WHERE condition;
 ~~~
 
-- #### Multiple condition.
+Example :
+```sql
+SELECT * FROM students WHERE studentId = 1;
+```
+
+- #### Multiple condition
 
 Es command ka use table me se multiple condition ke sath data get karane ke liye kiya jata hai.
 
+Syntax :
 ~~~
+SELECT * FROM table_name WHERE condition AND condition;
+
+SELECT * FROM table_name WHERE condition OR condition;
+
+SELECT * FROM table_name WHERE condition NOT condition;
+~~~
+
+Example :
+```sql
 SELECT * FROM students WHERE studentId = 1 AND studentName = 'wecode';
 
 SELECT * FROM students WHERE studentId = 4 OR fatherName = 'academy';
 
 SELECT * FROM students WHERE studentId = 3 NOT mobileNumber = 343243242;
-~~~
+```
 
-## Select unique data from table.
+## Select unique data from table
 
 Es command ka use table me se unique data get karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
+SELECT DICTINCT * FROM table_name;
+~~~
+
+Example :
+```sql
 SELECT DICTINCT * FROM students;
-~~~
+```
 
-## Update data in table.
+## Update data in table
 
-- #### Single column update in table.
+- #### Single column update in table
 
 Es command ka use table me single column ko update karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-UPDATE students SET studentName = 'wecode academy' WHERE studentId = 3;
+UPDATE table_name SET column_name = 'Update value' WHERE condtion;
 ~~~
 
-- #### Multiple column update in table.
+Example :
+```sql
+UPDATE students SET studentName = 'wecode academy' WHERE studentId = 3;
+```
+
+- #### Multiple column update in table
 
 Es command ka use table me multiple column ko update karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-UPDATE students SET studentName = 'wecode academy', mobileNumber = 1234567 WHERE studentId = 3;
+UPDATE table_name SET column_name = 'Update value', column_name = 'Update value' WHERE conditionl
 ~~~ 
 
-## Delete data in table.
+Example :
+```sql
+UPDATE students SET studentName = 'wecode academy', mobileNumber = 1234567 WHERE studentId = 3;
+```
 
-- #### Delete all data in table.
+## Delete data in table
+
+- #### Delete all data in table
 
 Es command ka use table me se all record ko delete karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-DELETE FROM students;
+DELETE FROM table_name;
 ~~~
 
-- #### Delete specific data in table.
+Example :
+```sql
+DELETE FROM students;
+```
+
+- #### Delete specific data in table
 
 Es command ka use table me se particular record ko delete karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-DELETE FROM students WHERE studentId = 1;
+DELETE FROM table_name WHERE condition;
 ~~~
 
-## Get limit data in table.
+Example :
+```sql
+DELETE FROM students WHERE studentId = 1;
+```
+
+## Get limit data in table
 
 Es command ka use table me se limit data get karane ke liye liya jata hai.
+
+Syntax :
 ~~~
-SELECT * FROM students LIMIT 2;
+SELECT * FROM LIMIT number_of_limit;
 ~~~
 
-## temporary column name change.
+Example :
+```sql
+SELECT * FROM students LIMIT 2;
+```
+
+## temporary column name change
 
 Es command ka use table ka data get karate time particular column ka name change karane ke liye hota hai.
+
+Syntax :
 ~~~
-SELECT studentName AS sName FROM students;
+SELECT column_name AS temporary_name FROM table_name;
 ~~~
 
-## Get group by data in table.
+Example :
+```sql
+SELECT studentName AS sName FROM students;
+```
+
+## Get group by data in table
 
 Es cammand ka use yeh dekhane ke liye kiya jata hai. ki particular value ke sath kitane record table me fill hai.
 
-- #### Get group by data specific column in table.
+- #### Get group by data specific column in table
 
 Es command use table me se specific column name ke sath data ko group by get karane k liye kiya jata hai.
+
+Syntax :
 ~~~
-SELECT studentName FROM students GROUP BY studentName;
+SELECT column_name1 FROM table_name GROUP BY column_name1;
 ~~~
 
-- #### Get group by data with particular condition in table.
+Example :
+```sql
+SELECT studentName FROM students GROUP BY studentName;
+```
+
+- #### Get group by data with particular condition in table
 
 Es command ka use table me se specific condition ke sath data ko group by get karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
+SELECT column_name FROM table_name WHERE condition GROUP BY column_name;
+~~~
+
+Example :
+```sql
 SELECT studentName FROM students WHERE studentId = 2 GROUP BY studentName;
-~~~
+```
 
-## Get order by data in table.
+## Get order by data in table
 
-- #### Get data by ascending order in table.
+- #### Get data by ascending order in table
 
 Es command ka use table me se ascending order me data get karane ke kiye kiya jata hai.
+
+Syntax :
 ~~~
+SELECT * FROM table_name ORDER BY column_name;
+
+SELECT * FROM table_name ORDER BY column_name ASC;
+~~~
+
+Example :
+```sql
 SELECT * FROM students ORDER BY mobileNumber;
 
 SELECT * FROM students ORDER BY mobileNumber ASC;
-~~~
+```
 
-- #### Get data by descending order in table.
+- #### Get data by descending order in table
 
 Es command ka use table me se descending order me data get karane ke liye kiya jata hai.
+
+Syntax :
 ~~~
-SELECT * FROM students ORDER BY studentId DESC;
+SELECT * FROM table_name ORDER BY column_name DESC;
 ~~~
 
-## Having in table.
+Example :
+```sql
+SELECT * FROM students ORDER BY studentId DESC;
+```
+
+## Having in table
 
 Es command ka use yhe dekhane ke liye kiya jata hai. ki particular value ke sath koi data table me fill hai ya nhi.
+
+Syntax :
 ~~~
-SELECT * FROM students HAVING studentName = 'wecode';
+SELECT * FROM table_name HAVING condition;
 ~~~
 
-## Insert data into a table using data from another table.
+Example :
+```sql
+SELECT * FROM students HAVING studentName = 'wecode';
+```
+
+## Insert data into a table using data from another table
 
 Es command ka use another table ka data kisi or table me insert karane ke liye hota hai.lakin esme table1 or table2 ke column order same hone chahiye. 
 
-- #### Insert all data.
+- #### Insert all data
+
+Syntax :
 ~~~
+INSERT INTO table_name1 SELECT * FROM table_name2;
+~~~
+
+Example :
+```sql
 INSERT INTO students SELECT * FROM students2;
+```
+
+- #### Insert data with particular condition
+
+Syntax :
+~~~
+INSERT INTO table_name1 SELECT * FROM table_name2 WHERE codition;
 ~~~
 
-- #### Insert data with particular condition;
-
-~~~
+Example :
+```sql
 INSERT INTO students SELECT * FROM students2 WHERE studentId = 3;
+```
+
+- #### Insert data specific column with particular condition
+
+Syntax :
+~~~
+INSERT INTO table_name1(column1,column2,...) SELECT * FROM table_name2 WHERE condition.
 ~~~
 
-- #### Insert data specific column with particular condition.
-
-~~~
+Example :
+```sql
 INSERT INTO students(studentName,fatherName,...) SELECT * FROM students2 WHERE studentId = 5.
-~~~
+```
 
-## Case in table.
+## Case in table
 
 Es command ka use table me se data get karte time particular statement ke sath data dekhane ke liye kiya jata hai.
 
+Syntax :
 ~~~
-SELECT studentName,marks, ...
+SELECT column1,column2, ...
+CASE 
+   WHEN condition THEN statement
+   ...
+   ELSE statement
+END AS temporary_column_name FROM table_name;
+~~~   
+
+Example :
+```sql
+SELECT studentName,marks,
 CASE 
    WHEN marks > 60 THEN 'Good'
    WHEN marks > 80 THEN 'Very good'
    WHEN marks > 90 THEN 'Excellent'
    ELSE 'fail'
 END AS result FROM students;
-~~~   
+```   
 
-## Comments in MySQL.
+## Comments in MySQL
 
 Comment ka use queri ko explain karane ke liye kiya jata hai.
 
-#### Single line comment.
+#### Single line comment
+Syntax :
 ~~~
 -- comment
 ~~~
 
+Example :
+```sql
+-- This query creates the table
+```
+
 #### Multiple line comments
+
+Syntax :
 ~~~
 /* 
 comment 
 */
 ~~~
 
-## Aggregate functions in DBMS.
+Example :
+```sql
+/*
+This query creates the table
+*/
+```
+
+## Aggregate functions in DBMS
 
 Aggregate function ka use DBMS me record ko sum,count,avg,max,min karane ke liye hota hai.
  
-### Sum function.
+### Sum function
 
 - #### Sum function without condition.
 
 Sum function ka use database me se numeric record ka sum karane ke liye hota hai. Without condition se studentFee table me se all month ki fees sum karga.
+
+Syntax :
 ~~~
-SELECT SUM(fees) FROM studentFee;
+SELECT aggregate_function_name(column_name) FROM table_name;
 ~~~
 
-- #### Sum function with condition.
+Example :
+```sql
+SELECT SUM(fees) FROM studentFee;
+```
+
+- #### Sum function with condition
 
 Sum function ka use database me se numeric record ka sum karane ke liye hota hai. with condition se studentFee table me se only january month ki fees sum karga.
+
+Syntax :
 ~~~
+SELECT aggregate_function_name(column_name) FROM table_name WHERE condition;
+~~~
+
+Example :
+```sql
 SELECT SUM(fees) FROM studentFee WHERE month = 'January';
-~~~
+```
 
-### Count function.
+### Count function
 
-- #### Count function without condition.
+- #### Count function without condition
 
 Count function ka use database me record ka count karane ke liye hota hai.Es queri me all studentId ka count karga.
+
+Syntax :
 ~~~
-SELECT COUNT(studentId) FROM students;
+SELECT aggregate_function_name(column_name) FROM table_name;
 ~~~
 
-- #### Count function with condition.
+Example :
+```sql
+SELECT COUNT(studentId) FROM students;
+```
+
+- #### Count function with condition
 
 Count function ka use database me record ka count karane ke liye hota hai. Es queri me sirf unhi student ka count hoga jiski age 15 year se badi hai.
+
+Syntax :
 ~~~
+SELECT aggregate_function_name(column_name) FROM table_name  WHERE condition;
+~~~
+
+Example :
+```sql
 SELECT COUNT(studentId) FROM students WHERE studentAge > 15;
-~~~
+```
 
-### Average function.
+### Average function
 
-- #### Average function without condition.
+- #### Average function without condition
 
 Average function ka use database me se numeric record ka average get karane ke liye hota hai. Es queri me all student ki age ki average nikali jaygi.
+
+Syntax :
 ~~~
-SELECT AVG(age) FROM students;
+SELECT aggregate_function_name(column_name) FROM table_name;
 ~~~
 
-- #### Average function with condition.
+Example :
+```sql
+SELECT AVG(age) FROM students;
+```
+
+- #### Average function with condition
 
 Average function ka use database me se numeric record ka average get karane ke liye hota hai. Es queri me sirf unhi student ki age ki average nikali jaygi jinka name 'wecode' hai.
+
+Syntax :
 ~~~
+SELECT aggregate_function_name(column_name) FROM table_name WHERE condition;
+~~~
+
+Example :
+```sql
 SELECT AVG(age) FROM students WHERE studentName = 'wecode';
-~~~
+```
 
-### Max function.
+### Max function
 
-- #### Max function without condition.
+- #### Max function without condition
 
 Max function ka use database me se numeric record me se maximum value get karane ke liye hota hai. Es queri me student me se kiski age sabse badi hai yhe get ki jaygi.
-~~~
-SELECT studentName,MAX(age) FROM students GROUP BY studentName LIMIT 1;
-~~~ 
 
-- #### Max function with condition.
+Syntax :
+~~~
+SELECT column_name, aggregate_function_name(column_name) FROM table_name GROUP BY column_name LIMIT number_of_limit;
+~~~
+
+Example :
+```sql
+SELECT studentName,MAX(age) FROM students GROUP BY studentName LIMIT 1;
+```
+
+- #### Max function with condition
 
 Max function ka use database me se numeric record me se maximum value get karane ke liye hota hai. Es queri me 'wecode' studentName me se kiski age maximum hai yhe get ki jaygi.
+
+Syntax :
 ~~~
+SELECT column_name, aggregate_function_name(column_name) FROM table_name WHERE condition GROUP BY column_name LIMIT number_of_limit;
+~~~
+
+Example :
+```sql
 SELECT studentId,MAX(age) FROM students WHERE studentName = 'wecode' GROUP BY studentId LIMIT 1;
-~~~
+```
 
-### Min function.
+### Min function
 
-- #### Min function without condition.
+- #### Min function without condition
 
 Min function ka use database me se numeric record me se minimum value get karane ke liye hota hai. Es queri me student me se kiski age sabse choti hai yhe get ki jaygi.
-~~~
-SELECT studentName,MIN(age) FROM students GROUP BY studentName LIMIT 1;
-~~~ 
 
-- #### Min function with condition.
+Syntax :
+~~~
+SELECT column_name, aggregate_function_name(column_name) FROM table_name GROUP BY column_name LIMIT number_of_number;
+~~~
+
+Example :
+```sql
+SELECT studentName,MIN(age) FROM students GROUP BY studentName LIMIT 1;
+```
+
+- #### Min function with condition
 
 Min function ka use database me se numeric record me se minimum value get karane ke liye hota hai. Es queri me 'wecode' studentName me se kiski age minimum hai yhe get ki jaygi.
+
+Syntax:
 ~~~
+SELECT column_name, aggregate_function_name(column_name) FROM table_name WHERE condition GROUP BY column_name LIMIT nubmer_of_limit;
+~~~
+
+Example :
+```sql
 SELECT studentId,MIN(age) FROM students WHERE studentName = 'wecode' GROUP BY studentId LIMIT 1;
-~~~
+```
 
-## Other function.
+## Other function
 
-- ### Null function.
+- ### Null function
 
 Null funcrion ka use table me se data get karte time particular column ki null value ki jagah default value set karane ke liye hota hai.
+
+Syntax :
 ~~~
+SELECT column_name, function_name(column_name, value) FROM  table_name;
+~~~
+
+Example :
+```sql
 SELECT studentName,IF NULL(mobileNumber, 9843853847) FROM students;
-~~~
+```
 
-## Logical operator in DBMS.
+## Logical operator in DBMS
 
-- #### AND operator.
+- #### AND operator
 
 AND operator ka use multiple condition lagane ke liye kiya jata hai. Esme all condition true hone per hi koi queri data return karti hai.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentName = 'wecode' AND studentId = 1;
+SELECT * FROM table_name WHERE condition AND condition;
 ~~~
 
-- #### OR operator.
+Example :
+```sql
+SELECT * FROM students WHERE studentName = 'wecode' AND studentId = 1;
+```
+
+- #### OR operator
 
 OR operator ka use multiple condition lagane ke liye kiya jata hai. Esme koi ek  condition true hone per hi koi queri data return karti hai. Jo condition true hogi oske related data return hoga. ager all condition true hoti hai to onke letated data return hoga.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentName = 'wecode'  OR studentId = 5;
+SELECT * FROM table_name WHERE condition OR condition;
 ~~~
 
-- #### NOT operator.
+Example :
+```sql
+SELECT * FROM students WHERE studentName = 'wecode'  OR studentId = 5;
+```
+
+- #### NOT operator
 
 NOT operator me jo condition true hoti hai oska data return nhi hota hai. oske alava queri all data return karti hai. Es queri me studentId 5 ka data return nhi hoga.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE NOT studentId = 5;  
+SELECT * FROM table_name WHERE NOT condition;
 ~~~
 
-- #### IN operator.
+Example :
+```sql
+SELECT * FROM students WHERE NOT studentId = 5;  
+```
+
+- #### IN operator
 
 IN operator ka use multiple condition ko sort me lagane ke liye kiya jata hai. Esme jo condition true hogi queri oska data return karti jaygi.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentId IN (1,2,3,4,5);
+SELECT * FROM table_name WHERE column_name IN(column_value);
 ~~~
 
-- #### LIKE operator.
+Example :
+```sql
+SELECT * FROM students WHERE studentId IN (1,2,3,4,5);
+```
+
+- #### LIKE operator
 
 LIKE operator ka use asi situation me kiya jata hai jaha hum value ka chota part yad ho or osi value ka data lena ho.
 
 > ##### LIKE with % searchValue.
 
 % se pahal kuch bhi ho sakta hai lakin oske aage searchValue honi chahiye.
+
+Syntax :
 ~~~
+SELECT * FROM table_name WHERE column_name LIKE '% searchValue'
+~~~
+
+Example :
+```sql
 SELECT * FROM students WHERE studentName LIKE '%khan';
-~~~
+```
 
 > ##### LIKE with % searchValue %;
 
 % se pahal or % ke bade kuch bhi ho sakta hai. lakin bich me searchValue honi chahiye.
+
+Syntax :
 ~~~
+SELECT * FROM table_name WHERE column_name LIKE '% searchValue %'
+~~~
+
+Example :
+```sql
 SELECT * FROM students WHERE studentEmail LIKE '%khan12@gmail%';
-~~~
+```
 
 > ##### LIKE with searchValue %
 
 % ke bade kuch bhi ho sakta hai lakin pahal searchValue honi chahiye.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE mobileNuber LIKE '1234%';
+SELECT * FROM table_name WHERE column_name LIKE 'searchValue %'
 ~~~
 
-- #### BETWEEN operator.
+Example :
+```sql
+SELECT * FROM students WHERE mobileNuber LIKE '1234%';
+```
+
+- #### BETWEEN operator
 
 BETWEEN operator ka use two condition ke bich ka record get karane ke liye kiya jata hai. 
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentId BETWEEN 5 AND 8;
+SELECT * FROM table_name WHERE column_name BETWEEN value AND value;
 ~~~
 
-- #### EXISTS operator.
+Example :
+```sql
+SELECT * FROM students WHERE studentId BETWEEN 5 AND 8;
+```
+
+- #### EXISTS operator
 
 EXISTS operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or particulr value ke sath record fill hota hai to queri table me se all data return karti hai.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE EXISTS(SELECT * FROM students WHERE studentName = "wecode");
+SELECT * FROM table_name WHERE EXISTS (SELECT * FROM table_name WHERE condition);
 ~~~
 
-- #### ALL operator.
+Example :
+```sql
+SELECT * FROM students WHERE EXISTS(SELECT * FROM students WHERE studentName = "wecode");
+```
+
+- #### ALL operator
 
 All operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or record fill hota hai to sub queri jo data retrun karti hai. os main queri se compare karte hai. comparision ke according main queri data return karti hai.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentId >= ALL (SELECT studentId FROM students WHERE fatherName = 'wecode khan');
+SELECT * FROM table_name WHERE condition ALL (SELECT column_name FROM table_name WHERE condition)
 ~~~
 
-- #### ANY operator.
+Example :
+```sql
+SELECT * FROM students WHERE studentId >= ALL (SELECT studentId FROM students WHERE fatherName = 'wecode khan');
+```
+
+- #### ANY operator
 
 ANY operator ka use table me particular value ke sath koi record fill hai ya nhi yhe dekhane ke liye kiya jaya hai. or record fill hota hai to sub queri jo data retrun karti hai. os main queri se compare karte hai. comparision ke according main queri data return karti hai.
+
+Syntax :
 ~~~
-SELECT * FROM students WHERE studentId <= ANY (SELECT studentId FROM students WHERE studentId > 4);
+SELECT * FROM table_name WHERE condition ANY (SELECT column_name FROM table_name WHERE condition);
 ~~~
 
-## CONSTRAINT in DBMS.
+Example :
+```sql
+SELECT * FROM students WHERE studentId <= ANY (SELECT studentId FROM students WHERE studentId > 4);
+```
+
+## CONSTRAINT in DBMS
 
 Constraint ka use table create karte time table ke liye rules banane ke liye hota hai.
 
+Syntax :
 ~~~
+CREATE TABLE Table_name (
+Column1 DATATYPE CONTRAINT,
+Column2 DATATYPE CONTRAINT,
+...
+);
+~~~
+
+Example :
+```sql
 CREATE TABLE fees(
 feeId INTEGER UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 amount BIGINT NOT NULL CHECK (amount >= 3000),
@@ -484,7 +902,7 @@ month VARCHAR(155) NOT NULL,
 feesCheck VARCHAR(155) DEFAULT 'Yes',
 sId INTEGER FOREIGN KEY(sId) REFERENCES students(studentId)
 );
-~~~
+```
 
 - **UNSIGNED** ka matlab hai ki yhe negative me number nhi laga. 
 - **PRIMARY KEY** ka matlab hai ki record ko uniquely identify karega. 
@@ -494,52 +912,99 @@ sId INTEGER FOREIGN KEY(sId) REFERENCES students(studentId)
 - **DEFAULT** ka matlab hai ki column me value insert nhi ki gai to ye default value insert ho jaygi.
 - **CHECK** constraint ka matlab hai ki column me condition ke accroding value insert ho sakti hai.
 
-## JOINs in DBMS.
+## JOINs in DBMS
 
 Joins ka use do ya do se jyada table ki infomation ek sath get karne ke liye hota hai.
 
-- #### INNER JOIN.
+- #### INNER JOIN
 
 Inner join ka use do ya do se jyada table ki coman record ko get karane ke liye hota hai.
-~~~
-SELECT * FROM students INNER JOIN fees ON student.sId IN(fees.sId);
-~~~ 
 
-- #### LEFT JOIN.
+Syntax :
+~~~
+SELECT * FROM table_name INNER JOIN table_name ON condition;
+~~~
+
+Example :
+```sql
+SELECT * FROM students INNER JOIN fees ON student.sId IN(fees.sId);
+```
+
+- #### LEFT JOIN
 
 Left join ka use students or fees ke coman record or students ke sare record get karane ke liye hota hai.
+
+Syntax :
 ~~~
+SELECT * FROM table_name LEFT JOIN table_name ON condition;
+~~~
+
+Example :
+```sql
 SELECT * FROM students LEFT JOIN fees ON student.sId IN(fees.sId);
-~~~
+```
 
 - #### RIGHT JOIN.
 
 Right join ka use students or fees ke coman record or fees ke sare record get karane ke liye hota hai.
+
+Syntax :
 ~~~
-SELECT * FROM students RIGHT JOIN fees ON student.sId IN(fees.sId);
+SELECT * FROM table_name RIGHT JOIN table_name ON condition;
 ~~~
 
-## MULTIPLE JOINs.
+Example :
+```SQL
+SELECT * FROM students RIGHT JOIN fees ON student.sId IN(fees.sId);
+```
+
+## MULTIPLE JOINs
 
 MULTIPLE Joins ka use do se jyada table ki infomation ek sath get karne ke liye hota hai.
 
-- #### MULTIPLE INNER JOIN.
+- #### MULTIPLE INNER JOIN
 
 Multiple inner join ka use do se jyada table ki coman record ko get karane ke liye hota hai.
-~~~
-SELECT * FROM students INNER JOIN fees ON student.sId IN(fees.sId) JOIN result ON student.sId IN(result.sId);
-~~~ 
 
-- #### MULTIPLE LEFT JOIN.
+Syntax :
+~~~
+SELECT * FROM table_name INNER JOIN table_name ON condition INNER JOIN table_name ON condition;
+~~~
+
+Example :
+```sql
+SELECT * FROM students INNER JOIN fees ON student.sId IN(fees.sId) JOIN result ON student.sId IN(result.sId);
+```
+
+- #### MULTIPLE LEFT JOIN
 
 Multiple left join ka use students or fees or result ke coman record or students ke sare record get karane ke liye hota hai.
+
+Syntax :
 ~~~
+SELECT * FROM table_name LEFT JOIN table_name ON condition LEFT JOIN table_name ON condition;
+~~~
+
+Example :
+```SQL
 SELECT * FROM students LEFT JOIN fees ON student.sId IN(fees.sId) LEFT JOIN result ON student.sId IN(result.sId);
-~~~
+```
 
 - #### MULTIPLE RIGHT JOIN.
 
 Multiple right join ka use students or fees or result ke coman record or fees ke sare record get karane ke liye hota hai.
+
+Syntax :
+~~~
+SELECT * FROM table_name RIGHT JOIN table_name ON condition RIGHT JOIN table_name ON condition;
+~~~
+
+Example :
 ~~~
 SELECT * FROM students RIGHT JOIN fees ON student.sId IN(fees.sId) RIGHT JOIN result ON student.sId IN(result.sId);
 ~~~
+
+
+
+
+
